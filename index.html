@@ -3,156 +3,279 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Nutricionista Marília Reis | Agendamento</title>
 
   <style>
+    :root {
+      --background: #f4f0ea;
+      --surface: #ffffff;
+      --surface-soft: #eee7dc;
+      --primary: #23382f;
+      --primary-dark: #17261f;
+      --accent: #b99a63;
+      --accent-soft: #e7dac4;
+      --text: #1f2522;
+      --muted: #6f746f;
+      --border: rgba(35, 56, 47, 0.12);
+      --whatsapp: #25d366;
+      --shadow: 0 24px 70px rgba(23, 38, 31, 0.13);
+      --radius: 28px;
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Inter, Arial, sans-serif;
     }
 
-    :root {
-      --green: #2f4f3a;
-      --green-dark: #1f3528;
-      --beige: #f7f1e8;
-      --gold: #c99a4a;
-      --text: #202020;
-      --muted: #666;
-      --white: #fff;
-      --whatsapp: #25d366;
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
-      background: var(--beige);
+      font-family: Inter, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(185, 154, 99, 0.18), transparent 32%),
+        linear-gradient(180deg, #fbf8f3 0%, var(--background) 100%);
       color: var(--text);
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     section {
-      padding: 80px 6%;
+      padding: 96px 6%;
+      position: relative;
     }
 
     .container {
+      width: 100%;
       max-width: 1180px;
-      margin: auto;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: rgba(185, 154, 99, 0.14);
+      border: 1px solid rgba(185, 154, 99, 0.28);
+      color: #7b633b;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 999px;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+      color: var(--primary-dark);
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.65;
+      color: var(--muted);
+    }
+
+    .lead {
+      max-width: 660px;
+      font-size: 20px;
+      margin-bottom: 34px;
     }
 
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, #fffaf2, #eadfcd);
+      padding-top: 72px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.92), rgba(238,231,220,0.78)),
+        radial-gradient(circle at 82% 20%, rgba(185,154,99,0.22), transparent 30%);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 50px;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 64px;
       align-items: center;
     }
 
-    .badge {
-      display: inline-block;
-      background: #efe1c9;
-      color: #805b1d;
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    h1 {
-      font-size: clamp(38px, 6vw, 68px);
-      line-height: 1;
-      margin-bottom: 24px;
-      color: var(--green-dark);
-      letter-spacing: -2px;
-    }
-
-    h2 {
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.1;
-      margin-bottom: 20px;
-      color: var(--green-dark);
-    }
-
-    h3 {
-      font-size: 22px;
-      margin-bottom: 10px;
-      color: var(--green-dark);
-    }
-
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--muted);
-    }
-
-    .hero p {
-      max-width: 620px;
-      margin-bottom: 30px;
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     .cta {
-      display: inline-block;
-      background: var(--whatsapp);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 18px 30px;
+      border-radius: 999px;
+      background: var(--primary-dark);
       color: white;
       text-decoration: none;
-      padding: 18px 30px;
-      border-radius: 14px;
-      font-weight: 800;
-      font-size: 17px;
-      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
-      transition: .3s;
+      font-weight: 850;
+      font-size: 16px;
+      box-shadow: 0 18px 35px rgba(23, 38, 31, 0.22);
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
     }
 
     .cta:hover {
       transform: translateY(-3px);
-      filter: brightness(0.95);
+      box-shadow: 0 22px 48px rgba(23, 38, 31, 0.28);
+      background: var(--primary);
+    }
+
+    .cta.whatsapp {
+      background: var(--whatsapp);
+      box-shadow: 0 18px 35px rgba(37, 211, 102, 0.22);
+    }
+
+    .subnote {
+      margin-top: 18px;
+      font-size: 14px;
+      color: #7c807c;
     }
 
     .hero-card {
-      background: white;
-      border-radius: 32px;
-      padding: 28px;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.12);
-      text-align: center;
+      position: relative;
+      padding: 16px;
+      border-radius: 38px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(255,255,255,0.75);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(185,154,99,0.26);
+      border-radius: 30px;
+      pointer-events: none;
+      z-index: 2;
     }
 
     .profile {
       width: 100%;
-      max-height: 480px;
+      height: 510px;
       object-fit: cover;
-      border-radius: 26px;
-      margin-bottom: 22px;
+      object-position: center;
+      border-radius: 30px;
+      filter: saturate(0.92) contrast(1.03);
     }
 
-    .hero-card strong {
+    .profile-info {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      bottom: 32px;
+      z-index: 3;
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.85);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    }
+
+    .profile-info strong {
       display: block;
-      color: var(--green-dark);
       font-size: 24px;
-      margin-bottom: 8px;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+    }
+
+    .profile-info p {
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 44px;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 22px;
-      margin-top: 40px;
     }
 
     .card {
-      background: white;
-      padding: 28px;
-      border-radius: 24px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+      position: relative;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: 0 16px 40px rgba(23, 38, 31, 0.07);
+      transition: transform .25s ease, box-shadow .25s ease, border .25s ease;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      right: -40px;
+      top: -40px;
+      background: rgba(185,154,99,0.12);
+      border-radius: 50%;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 55px rgba(23, 38, 31, 0.12);
+      border-color: rgba(185,154,99,0.35);
     }
 
     .dark {
-      background: var(--green-dark);
+      background:
+        linear-gradient(135deg, var(--primary-dark), var(--primary)),
+        radial-gradient(circle at top right, rgba(185,154,99,0.28), transparent 28%);
       color: white;
+      overflow: hidden;
     }
 
     .dark h2,
@@ -161,68 +284,86 @@
     }
 
     .dark p {
-      color: #dcdcdc;
+      color: rgba(255,255,255,0.76);
     }
 
     .two-col {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      gap: 58px;
       align-items: center;
     }
 
     .list {
       display: grid;
-      gap: 16px;
-      margin-top: 28px;
+      gap: 15px;
     }
 
     .list div {
-      background: white;
-      padding: 18px;
-      border-radius: 16px;
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(255,255,255,0.7);
+      color: var(--primary-dark);
       font-size: 17px;
-      color: #333;
+      font-weight: 650;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+    }
+
+    .dark .list div {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      backdrop-filter: blur(10px);
     }
 
     .steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 26px;
-      margin-top: 45px;
+      margin-top: 44px;
     }
 
     .step {
-      background: #fff;
-      padding: 34px;
-      border-radius: 26px;
-      border-top: 5px solid var(--gold);
+      position: relative;
+      padding: 36px;
+      border-radius: 30px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 46px rgba(23, 38, 31, 0.08);
     }
 
     .step span {
       display: inline-flex;
-      width: 42px;
-      height: 42px;
-      background: var(--green);
-      color: white;
-      border-radius: 50%;
+      width: 46px;
+      height: 46px;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      margin-bottom: 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #d7bf8c);
+      color: #fff;
+      font-weight: 900;
+      margin-bottom: 22px;
+      box-shadow: 0 12px 25px rgba(185,154,99,0.28);
     }
 
     .about-box {
-      background: #fff;
-      border-radius: 30px;
-      padding: 42px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+      min-height: 100%;
+      padding: 44px;
+      border-radius: 34px;
+      background: rgba(255,255,255,0.78);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
 
     .final {
       text-align: center;
-      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      background:
+        linear-gradient(135deg, rgba(23,38,31,0.95), rgba(35,56,47,0.95)),
+        radial-gradient(circle at center top, rgba(185,154,99,0.35), transparent 35%);
       color: white;
+      padding-bottom: 120px;
     }
 
     .final h2,
@@ -231,51 +372,122 @@
     }
 
     .final p {
-      max-width: 720px;
-      margin: 0 auto 30px;
+      max-width: 760px;
+      margin: 0 auto 32px;
+      color: rgba(255,255,255,0.76);
     }
 
     .floating {
       position: fixed;
-      right: 22px;
-      bottom: 22px;
+      right: 24px;
+      bottom: 24px;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 22px;
+      border-radius: 999px;
       background: var(--whatsapp);
       color: white;
       text-decoration: none;
-      padding: 15px 20px;
-      border-radius: 999px;
-      font-weight: 800;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-      z-index: 10;
+      font-weight: 900;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
+      transition: transform .25s ease;
     }
 
-    @media (max-width: 900px) {
+    .floating:hover {
+      transform: translateY(-3px);
+    }
+
+    .reveal {
+      animation: reveal .8s ease both;
+    }
+
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
       section {
-        padding: 60px 22px;
+        padding: 72px 22px;
+      }
+
+      .hero {
+        padding-top: 54px;
       }
 
       .hero-grid,
       .two-col {
         grid-template-columns: 1fr;
+        gap: 42px;
       }
 
-      .cards,
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .steps {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        text-align: left;
+      .profile {
+        height: 440px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      section {
+        padding: 64px 18px;
       }
 
-      .hero-card {
-        padding: 18px;
+      h1 {
+        font-size: 42px;
+        letter-spacing: -0.045em;
+      }
+
+      h2 {
+        font-size: 34px;
+      }
+
+      p,
+      .lead {
+        font-size: 17px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .cta {
+        width: 100%;
+      }
+
+      .profile {
+        height: 390px;
+      }
+
+      .profile-info {
+        left: 26px;
+        right: 26px;
+        bottom: 26px;
+      }
+
+      .about-box {
+        padding: 30px;
       }
 
       .floating {
         left: 18px;
         right: 18px;
-        text-align: center;
+        bottom: 16px;
       }
     }
   </style>
@@ -289,45 +501,63 @@
 
   <section class="hero">
     <div class="container hero-grid">
-      <div>
-        <span class="badge">Nutrição com leveza</span>
+      <div class="reveal">
+        <span class="eyebrow">Nutrição com leveza</span>
+
         <h1>Transforme sua alimentação sem viver presa a dietas impossíveis.</h1>
-        <p>
+
+        <p class="lead">
           Atendimento nutricional personalizado para saúde, emagrecimento,
           hipertrofia e performance, com estratégia, leveza e acompanhamento.
         </p>
-        <a class="cta" href="https://api.whatsapp.com/send/?phone=5524999522142&text&type=phone_number&app_absent=0" target="_blank">
-          Quero agendar minha consulta
-        </a>
+
+        <div class="hero-actions">
+          <a class="cta whatsapp" href="https://api.whatsapp.com/send/?phone=5524999522142&text&type=phone_number&app_absent=0" target="_blank">
+            Quero agendar minha consulta
+          </a>
+        </div>
+
+        <p class="subnote">
+          Pré-atendimento pelo WhatsApp para entender seu objetivo e verificar disponibilidade.
+        </p>
       </div>
 
-      <div class="hero-card">
+      <div class="hero-card reveal">
         <img class="profile" src="assets/img/marilia.jpg" alt="Nutricionista Marília Reis">
-        <strong>Marília Reis</strong>
-        <p>Nutricionista | Saúde, emagrecimento, hipertrofia e performance</p>
+
+        <div class="profile-info">
+          <strong>Marília Reis</strong>
+          <p>Nutricionista | Saúde, emagrecimento, hipertrofia e performance</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section>
     <div class="container">
-      <h2>Para quem é esse acompanhamento?</h2>
-      <p>Ideal para quem quer cuidar do corpo sem extremismos e com um plano alimentar possível de seguir.</p>
+      <div class="section-head reveal">
+        <span class="eyebrow">Acompanhamento personalizado</span>
+        <h2>Para quem é esse acompanhamento?</h2>
+        <p>Ideal para quem quer cuidar do corpo sem extremismos e com um plano alimentar possível de seguir.</p>
+      </div>
 
       <div class="cards">
-        <div class="card">
+        <div class="card reveal">
           <h3>🔥 Emagrecimento</h3>
           <p>Para quem quer perder gordura com estratégia e constância.</p>
         </div>
-        <div class="card">
+
+        <div class="card reveal">
           <h3>💪 Hipertrofia</h3>
           <p>Para quem busca ganho de massa muscular com orientação nutricional.</p>
         </div>
-        <div class="card">
+
+        <div class="card reveal">
           <h3>⚡ Performance</h3>
           <p>Para quem treina e quer melhorar energia, rendimento e recuperação.</p>
         </div>
-        <div class="card">
+
+        <div class="card reveal">
           <h3>🥗 Saúde</h3>
           <p>Para quem deseja mais equilíbrio, disposição e qualidade de vida.</p>
         </div>
@@ -337,15 +567,18 @@
 
   <section class="dark">
     <div class="container two-col">
-      <div>
+      <div class="reveal">
+        <span class="eyebrow">Estratégia realista</span>
+
         <h2>Você não precisa de uma dieta perfeita. Precisa de uma estratégia que funcione na sua rotina.</h2>
+
         <p>
           O acompanhamento é pensado para entender seu momento, seus objetivos,
           sua rotina e suas dificuldades, criando um plano mais leve, realista e sustentável.
         </p>
       </div>
 
-      <div class="list">
+      <div class="list reveal">
         <div>✅ Sem terrorismo nutricional</div>
         <div>✅ Plano alimentar personalizado</div>
         <div>✅ Estratégia de acordo com seu objetivo</div>
@@ -356,23 +589,26 @@
 
   <section>
     <div class="container">
-      <h2>Como funciona o atendimento</h2>
-      <p>Um processo simples para você começar com clareza e segurança.</p>
+      <div class="section-head reveal">
+        <span class="eyebrow">Processo de atendimento</span>
+        <h2>Como funciona o atendimento</h2>
+        <p>Um processo simples para você começar com clareza e segurança.</p>
+      </div>
 
       <div class="steps">
-        <div class="step">
+        <div class="step reveal">
           <span>1</span>
           <h3>Pré-atendimento</h3>
           <p>Você entra em contato pelo WhatsApp para entender valores, horários e disponibilidade.</p>
         </div>
 
-        <div class="step">
+        <div class="step reveal">
           <span>2</span>
           <h3>Avaliação individual</h3>
           <p>A Marília entende sua rotina, histórico, objetivo e principais dificuldades.</p>
         </div>
 
-        <div class="step">
+        <div class="step reveal">
           <span>3</span>
           <h3>Plano personalizado</h3>
           <p>Você recebe uma estratégia alimentar alinhada com sua realidade e seu objetivo.</p>
@@ -383,22 +619,30 @@
 
   <section>
     <div class="container two-col">
-      <div class="about-box">
+      <div class="about-box reveal">
+        <span class="eyebrow">Autoridade</span>
+
         <h2>Sobre a Nutri Marília Reis</h2>
+
         <p>
           Marília Reis é nutricionista e atua com uma abordagem leve, estratégica
           e personalizada, ajudando pacientes que buscam emagrecimento, saúde,
           hipertrofia e performance sem abrir mão do equilíbrio.
         </p>
+
         <br>
+
         <p>
           Seu atendimento une ciência, individualidade e praticidade para que
           a alimentação se encaixe na vida real.
         </p>
       </div>
 
-      <div class="about-box">
+      <div class="about-box reveal">
+        <span class="eyebrow">Experiência do paciente</span>
+
         <h2>O que você pode esperar</h2>
+
         <div class="list">
           <div>✨ Mais organização alimentar</div>
           <div>✨ Estratégia clara para seu objetivo</div>
@@ -410,14 +654,17 @@
   </section>
 
   <section class="final">
-    <div class="container">
+    <div class="container reveal">
+      <span class="eyebrow">Agendamento</span>
+
       <h2>Pronta para começar seu acompanhamento?</h2>
+
       <p>
         Clique no botão abaixo para falar pelo WhatsApp, tirar suas dúvidas
         e verificar a melhor opção de agendamento.
       </p>
 
-      <a class="cta" href="https://api.whatsapp.com/send/?phone=5524999522142&text&type=phone_number&app_absent=0" target="_blank">
+      <a class="cta whatsapp" href="https://api.whatsapp.com/send/?phone=5524999522142&text&type=phone_number&app_absent=0" target="_blank">
         Falar com a Nutri Marília agora
       </a>
     </div>
