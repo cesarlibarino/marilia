@@ -3,191 +3,423 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Agendamento | Nutri Marília Reis</title>
+  <title>Nutricionista Marília Reis | Agendamento</title>
 
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    :root {
+      --green: #2f4f3a;
+      --green-dark: #1f3528;
+      --beige: #f7f1e8;
+      --gold: #c99a4a;
+      --text: #202020;
+      --muted: #666;
+      --white: #fff;
+      --whatsapp: #25d366;
     }
 
     body {
-      background: #f7f4ef;
-      color: #2b2b2b;
+      background: var(--beige);
+      color: var(--text);
+    }
+
+    section {
+      padding: 80px 6%;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
     }
 
     .hero {
       min-height: 100vh;
-      padding: 40px 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      background: linear-gradient(180deg, #fff8ef 0%, #f3eadf 100%);
+      background: linear-gradient(135deg, #fffaf2, #eadfcd);
     }
 
-    .container {
-      max-width: 460px;
-      width: 100%;
-      background: #fff;
-      border-radius: 28px;
-      padding: 32px 24px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-      text-align: center;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
     }
 
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #d6a65c;
-      margin-bottom: 18px;
-    }
-
-    .tag {
+    .badge {
       display: inline-block;
-      background: #f1e2c8;
-      color: #8a5b22;
-      padding: 8px 14px;
+      background: #efe1c9;
+      color: #805b1d;
+      padding: 10px 18px;
       border-radius: 999px;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 18px;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 22px;
     }
 
     h1 {
-      font-size: 30px;
-      line-height: 1.1;
-      margin-bottom: 14px;
-      color: #1f1f1f;
-    }
-
-    .subtitle {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.5;
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: 1;
       margin-bottom: 24px;
+      color: var(--green-dark);
+      letter-spacing: -2px;
     }
 
-    .benefits {
-      text-align: left;
-      margin: 24px 0;
+    h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.1;
+      margin-bottom: 20px;
+      color: var(--green-dark);
     }
 
-    .benefits p {
-      background: #faf6ef;
-      padding: 14px 16px;
-      border-radius: 14px;
+    h3 {
+      font-size: 22px;
       margin-bottom: 10px;
-      font-size: 15px;
+      color: var(--green-dark);
     }
 
-    .question-box {
-      background: #2f3d2e;
-      color: #fff;
-      padding: 22px;
-      border-radius: 20px;
-      margin: 24px 0;
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--muted);
     }
 
-    .question-box h2 {
-      font-size: 21px;
-      margin-bottom: 10px;
-    }
-
-    .question-box p {
-      font-size: 14px;
-      color: #e8e8e8;
-      line-height: 1.5;
+    .hero p {
+      max-width: 620px;
+      margin-bottom: 30px;
     }
 
     .cta {
-      display: block;
-      background: #25d366;
-      color: #fff;
+      display: inline-block;
+      background: var(--whatsapp);
+      color: white;
       text-decoration: none;
-      padding: 18px 22px;
-      border-radius: 16px;
+      padding: 18px 30px;
+      border-radius: 14px;
+      font-weight: 800;
       font-size: 17px;
-      font-weight: bold;
-      margin-top: 20px;
-      transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(37, 211, 102, 0.25);
+      transition: .3s;
     }
 
     .cta:hover {
-      background: #1ebe5d;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      filter: brightness(0.95);
     }
 
-    .note {
-      font-size: 13px;
-      color: #777;
-      margin-top: 14px;
-      line-height: 1.4;
+    .hero-card {
+      background: white;
+      border-radius: 32px;
+      padding: 28px;
+      box-shadow: 0 25px 70px rgba(0,0,0,0.12);
+      text-align: center;
     }
 
-    .footer {
-      margin-top: 24px;
-      font-size: 13px;
-      color: #999;
+    .profile {
+      width: 100%;
+      max-height: 480px;
+      object-fit: cover;
+      border-radius: 26px;
+      margin-bottom: 22px;
+    }
+
+    .hero-card strong {
+      display: block;
+      color: var(--green-dark);
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 24px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.06);
+    }
+
+    .dark {
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .dark h2,
+    .dark h3 {
+      color: white;
+    }
+
+    .dark p {
+      color: #dcdcdc;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .list {
+      display: grid;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .list div {
+      background: white;
+      padding: 18px;
+      border-radius: 16px;
+      font-size: 17px;
+      color: #333;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-top: 45px;
+    }
+
+    .step {
+      background: #fff;
+      padding: 34px;
+      border-radius: 26px;
+      border-top: 5px solid var(--gold);
+    }
+
+    .step span {
+      display: inline-flex;
+      width: 42px;
+      height: 42px;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .about-box {
+      background: #fff;
+      border-radius: 30px;
+      padding: 42px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    }
+
+    .final {
+      text-align: center;
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      color: white;
+    }
+
+    .final h2,
+    .final p {
+      color: white;
+    }
+
+    .final p {
+      max-width: 720px;
+      margin: 0 auto 30px;
+    }
+
+    .floating {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: var(--whatsapp);
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      z-index: 10;
+    }
+
+    @media (max-width: 900px) {
+      section {
+        padding: 60px 22px;
+      }
+
+      .hero-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        text-align: left;
+      }
+
+      .hero-card {
+        padding: 18px;
+      }
+
+      .floating {
+        left: 18px;
+        right: 18px;
+        text-align: center;
+      }
     }
   </style>
 </head>
 
 <body>
 
+  <a class="floating" href="https://api.whatsapp.com/send/?phone=5524999522142&text&type=phone_number&app_absent=0" target="_blank">
+    Agendar pelo WhatsApp
+  </a>
+
   <section class="hero">
-    <div class="container">
-
-      <img 
-        class="profile-img" 
-        src="SUA-FOTO-AQUI.jpg" 
-        alt="Nutricionista Marília Reis"
-      />
-
-      <span class="tag">Nutrição com leveza</span>
-
-      <h1>Agende sua consulta com a Nutri Marília Reis</h1>
-
-      <p class="subtitle">
-        Atendimento nutricional para quem busca saúde, emagrecimento,
-        hipertrofia e performance com equilíbrio, estratégia e leveza.
-      </p>
-
-      <div class="benefits">
-        <p>✨ Plano alimentar pensado para a sua rotina</p>
-        <p>🔥 Estratégia para emagrecimento sem terrorismo nutricional</p>
-        <p>💪 Acompanhamento para hipertrofia e performance</p>
-        <p>🥗 Nutrição prática, leve e possível de seguir</p>
+    <div class="container hero-grid">
+      <div>
+        <span class="badge">Nutrição com leveza</span>
+        <h1>Transforme sua alimentação sem viver presa a dietas impossíveis.</h1>
+        <p>
+          Atendimento nutricional personalizado para saúde, emagrecimento,
+          hipertrofia e performance, com estratégia, leveza e acompanhamento.
+        </p>
+        <a class="cta" href="https://api.whatsapp.com/send/?phone=5524999522142&text&type=phone_number&app_absent=0" target="_blank">
+          Quero agendar minha consulta
+        </a>
       </div>
 
-      <div class="question-box">
-        <h2>Antes de agendar...</h2>
+      <div class="hero-card">
+        <img class="profile" src="assets/img/marilia.jpg" alt="Nutricionista Marília Reis">
+        <strong>Marília Reis</strong>
+        <p>Nutricionista | Saúde, emagrecimento, hipertrofia e performance</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Para quem é esse acompanhamento?</h2>
+      <p>Ideal para quem quer cuidar do corpo sem extremismos e com um plano alimentar possível de seguir.</p>
+
+      <div class="cards">
+        <div class="card">
+          <h3>🔥 Emagrecimento</h3>
+          <p>Para quem quer perder gordura com estratégia e constância.</p>
+        </div>
+        <div class="card">
+          <h3>💪 Hipertrofia</h3>
+          <p>Para quem busca ganho de massa muscular com orientação nutricional.</p>
+        </div>
+        <div class="card">
+          <h3>⚡ Performance</h3>
+          <p>Para quem treina e quer melhorar energia, rendimento e recuperação.</p>
+        </div>
+        <div class="card">
+          <h3>🥗 Saúde</h3>
+          <p>Para quem deseja mais equilíbrio, disposição e qualidade de vida.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <div class="container two-col">
+      <div>
+        <h2>Você não precisa de uma dieta perfeita. Precisa de uma estratégia que funcione na sua rotina.</h2>
         <p>
-          Clique no botão abaixo para conversar pelo WhatsApp.
-          Assim conseguimos entender seu objetivo e indicar o melhor caminho
-          para o seu acompanhamento.
+          O acompanhamento é pensado para entender seu momento, seus objetivos,
+          sua rotina e suas dificuldades, criando um plano mais leve, realista e sustentável.
         </p>
       </div>
 
-      <a 
-        class="cta" 
-        href="https://api.whatsapp.com/send/?phone=5524999522142&text&type=phone_number&app_absent=0"
-        target="_blank"
-      >
-        Quero agendar minha consulta
-      </a>
+      <div class="list">
+        <div>✅ Sem terrorismo nutricional</div>
+        <div>✅ Plano alimentar personalizado</div>
+        <div>✅ Estratégia de acordo com seu objetivo</div>
+        <div>✅ Mais clareza para saber o que comer</div>
+      </div>
+    </div>
+  </section>
 
-      <p class="note">
-        Você será direcionado para o WhatsApp para iniciar seu pré-atendimento.
-      </p>
+  <section>
+    <div class="container">
+      <h2>Como funciona o atendimento</h2>
+      <p>Um processo simples para você começar com clareza e segurança.</p>
 
-      <div class="footer">
-        @nutri.mariliareis
+      <div class="steps">
+        <div class="step">
+          <span>1</span>
+          <h3>Pré-atendimento</h3>
+          <p>Você entra em contato pelo WhatsApp para entender valores, horários e disponibilidade.</p>
+        </div>
+
+        <div class="step">
+          <span>2</span>
+          <h3>Avaliação individual</h3>
+          <p>A Marília entende sua rotina, histórico, objetivo e principais dificuldades.</p>
+        </div>
+
+        <div class="step">
+          <span>3</span>
+          <h3>Plano personalizado</h3>
+          <p>Você recebe uma estratégia alimentar alinhada com sua realidade e seu objetivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container two-col">
+      <div class="about-box">
+        <h2>Sobre a Nutri Marília Reis</h2>
+        <p>
+          Marília Reis é nutricionista e atua com uma abordagem leve, estratégica
+          e personalizada, ajudando pacientes que buscam emagrecimento, saúde,
+          hipertrofia e performance sem abrir mão do equilíbrio.
+        </p>
+        <br>
+        <p>
+          Seu atendimento une ciência, individualidade e praticidade para que
+          a alimentação se encaixe na vida real.
+        </p>
       </div>
 
+      <div class="about-box">
+        <h2>O que você pode esperar</h2>
+        <div class="list">
+          <div>✨ Mais organização alimentar</div>
+          <div>✨ Estratégia clara para seu objetivo</div>
+          <div>✨ Condutas personalizadas</div>
+          <div>✨ Alimentação mais leve e possível</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="container">
+      <h2>Pronta para começar seu acompanhamento?</h2>
+      <p>
+        Clique no botão abaixo para falar pelo WhatsApp, tirar suas dúvidas
+        e verificar a melhor opção de agendamento.
+      </p>
+
+      <a class="cta" href="https://api.whatsapp.com/send/?phone=5524999522142&text&type=phone_number&app_absent=0" target="_blank">
+        Falar com a Nutri Marília agora
+      </a>
     </div>
   </section>
 
